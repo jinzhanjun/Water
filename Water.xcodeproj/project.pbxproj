@@ -30,6 +30,8 @@
 		7BD06C57245065D700355158 /* NSString+CZHash.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BD06C48245065D700355158 /* NSString+CZHash.m */; };
 		7BD06C58245065D700355158 /* NSAttributedString+CZAdditon.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BD06C4B245065D700355158 /* NSAttributedString+CZAdditon.m */; };
 		7BD06C59245065D700355158 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BD06C4C245065D700355158 /* NSArray+Log.m */; };
+		7BD06C5C2450715A00355158 /* WTNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD06C5B2450715A00355158 /* WTNavViewController.swift */; };
+		7BD06C60245072DB00355158 /* WTDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD06C5F245072DB00355158 /* WTDemoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +74,8 @@
 		7BD06C4C245065D700355158 /* NSArray+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Log.m"; sourceTree = "<group>"; };
 		7BD06C4D245065D700355158 /* NSString+CZPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CZPath.h"; sourceTree = "<group>"; };
 		7BD06C5A2450660300355158 /* Objc_bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Objc_bridge.h; sourceTree = "<group>"; };
+		7BD06C5B2450715A00355158 /* WTNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTNavViewController.swift; sourceTree = "<group>"; };
+		7BD06C5F245072DB00355158 /* WTDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTDemoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +169,8 @@
 			isa = PBXGroup;
 			children = (
 				7BD06C272450437F00355158 /* WTMainViewController.swift */,
+				7BD06C5F245072DB00355158 /* WTDemoViewController.swift */,
+				7BD06C5B2450715A00355158 /* WTNavViewController.swift */,
 				7BD06C252450435300355158 /* WTBasicViewController.swift */,
 			);
 			path = Main;
@@ -306,8 +312,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BD06C4F245065D700355158 /* UIView+CZAddition.m in Sources */,
+				7BD06C5C2450715A00355158 /* WTNavViewController.swift in Sources */,
 				7BD06C53245065D700355158 /* NSString+CZPath.m in Sources */,
 				7BD06C4E245065D700355158 /* UIColor+CZAddition.m in Sources */,
+				7BD06C60245072DB00355158 /* WTDemoViewController.swift in Sources */,
 				7BD06C282450437F00355158 /* WTMainViewController.swift in Sources */,
 				7BD06C52245065D700355158 /* NSString+CZBase64.m in Sources */,
 				7BD06C3324504D1C00355158 /* String+Extension.swift in Sources */,

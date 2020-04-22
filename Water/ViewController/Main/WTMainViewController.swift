@@ -15,13 +15,11 @@ class WTMainViewController: UITabBarController {
         super.viewDidLoad()
         // 设置界面
         setupUI()
-        
         view.backgroundColor = UIColor.white
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         // 添加撰写按钮
         addComposeBtn()
     }
@@ -89,7 +87,7 @@ class WTMainViewController: UITabBarController {
         vc.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)], for: .normal) // 字体大小
         
         // 使用navgation包装 --- 多态
-        let nav = UINavigationController(rootViewController: vc)
+        let nav = WTNavViewController(rootViewController: vc)
         return nav
     }
 }
