@@ -15,40 +15,65 @@ class WTMainViewController: UITabBarController {
         super.viewDidLoad()
         // 设置界面
         setupUI()
+        
         view.backgroundColor = UIColor.white
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // 添加撰写按钮
+        addComposeBtn()
     }
     
     /// 设置界面
     private func setupUI() {
-        
         // 遍历字典
         for dict in classInfoDic {
-            guard let child = creatClass(by: dict) else { return }
-            
-            // 设置字体颜色
-            child.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.orange], for: .selected) // 选择状态
-            child.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.darkGray], for: .normal) // 正常状态
-            // 设置字体大小
-            child.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)], for: .normal) // 字体大小
-            addChild(child)
+            addChild(creatClass(by: dict))
         }
+    }
+    
+    /// 创建撰写微博按钮
+    private func addComposeBtn() {
+        
+        
+        let btn: UIButton = UIButton.cz_imageButton("tabbar_compose_icon_add", backgroundImageName: "tabbar_compose_button")
+        // 设置高亮图片
+        btn.setImage(UIImage(named: "tabbar_compose_icon_add_highlighted"), for: .highlighted)
+        btn.setBackgroundImage(UIImage(named: "tabbar_compose_button_highlighted"), for: .highlighted)
+        
+        // 计算单个Item的宽度
+        let width = tabBar.bounds.width / CGFloat(children.count)
+        // 设置frame
+        btn.frame = tabBar.bounds.insetBy(dx: 2 * width, dy: 0)
+        // 监听方法
+        btn.addTarget(self, action: #selector(compose), for: .touchUpInside)
+        // 加入视图
+        tabBar.addSubview(btn)
+    }
+    
+    /// 撰写微博
+    @objc private func compose() {
+        print("撰写微博")
     }
     
     /// 类字典信息
     var classInfoDic: [[String: String]] {
         return [["clsName": "WTHomeViewController", "title": "首页", "imageName": "home"],
                 ["clsName": "WTMessageViewController", "title": "消息", "imageName": "message_center"],
+                ["clsName": "composeViewController"],
                 ["clsName": "WTDiscoverViewController", "title": "发现", "imageName": "discover"],
                 ["clsName": "WTProfileViewController", "title": "我", "imageName": "profile"],
         ]
     }
     /// 根据字典创建类
-    private func creatClass(by dict: [String: String]) -> UIViewController? {
+    private func creatClass(by dict: [String: String]) -> UIViewController {
         guard let clsName = dict["clsName"],
             let title = dict["title"],
             let imageName = dict["imageName"],
             let cls = NSClassFromString(clsName.addNameSpace) as? UIViewController.Type
-            else { return nil }
+            else { return UIViewController() }
         
         let vc = cls.init()
         // 设置标题
@@ -56,6 +81,12 @@ class WTMainViewController: UITabBarController {
         // 设置标题图片
         vc.tabBarItem.image = UIImage(named: "tabbar_\(imageName)") // 正常状态
         vc.tabBarItem.selectedImage = UIImage(named: "tabbar_\(imageName)_selected")?.withRenderingMode(.alwaysOriginal) // 选择状态
+        
+        // 设置字体颜色
+        vc.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.orange], for: .selected) // 选择状态
+        vc.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.darkGray], for: .normal) // 正常状态
+        // 设置字体大小
+        vc.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)], for: .normal) // 字体大小
         
         // 使用navgation包装 --- 多态
         let nav = UINavigationController(rootViewController: vc)
