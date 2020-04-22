@@ -9,11 +9,17 @@
 import UIKit
 
 class WTNavViewController: UINavigationController {
+    
+    lazy var navBar = WTNavBar()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setupUI()
+    }
+    
+    private func setupUI() {
+        navigationBar.isHidden = true
     }
     
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {

@@ -13,6 +13,17 @@ class WTDemoViewController: WTBasicViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = UIColor.red
+        view.backgroundColor = UIColor.white
+    }
+    
+    
+    override func setupNavBar() {
+        super.setupNavBar()
+        
+        navItem.rightBarButtonItem = UIBarButtonItem(title: "下一页", style: .plain, target: self, action: #selector(showNext))
+    }
+    
+    @objc private func showNext() {
+        navigationController?.pushViewController(WTDemoViewController(), animated: true)
     }
 }

@@ -9,20 +9,35 @@
 import UIKit
 
 class WTBasicViewController: UIViewController {
+    
+    /// 重写title属性
+    override var title: String? {
+        didSet {
+            navItem.title = title
+        }
+    }
+    
+    /// 懒加载自定义导航条
+    lazy var navBar = WTNavBar(frame: CGRect(x: 0, y: StatusBarHeight, width: UIScreen.cz_screenWidth(), height: 44))
+    
+    lazy var navItem = UINavigationItem()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        
+        setupNavBar()
         view.backgroundColor = UIColor.cz_random()
     }
     
+    /// 设置界面
     func setupUI() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "下一页", style: .plain, target: self, action: #selector(pushNext))
+        
     }
     
-    /// push 下一页
-    @objc private func pushNext() {
-        navigationController?.pushViewController(WTDemoViewController(), animated: true)
+    /// 设置导航条
+    func setupNavBar() {
+        navBar.items = [navItem]
+        
+        view.addSubview(navBar)
     }
 }

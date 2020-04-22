@@ -32,6 +32,8 @@
 		7BD06C59245065D700355158 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BD06C4C245065D700355158 /* NSArray+Log.m */; };
 		7BD06C5C2450715A00355158 /* WTNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD06C5B2450715A00355158 /* WTNavViewController.swift */; };
 		7BD06C60245072DB00355158 /* WTDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD06C5F245072DB00355158 /* WTDemoViewController.swift */; };
+		7BD06C622450787F00355158 /* WTNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD06C612450787F00355158 /* WTNavBar.swift */; };
+		7BD06C6424508B7400355158 /* WTCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD06C6324508B7400355158 /* WTCommon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +78,8 @@
 		7BD06C5A2450660300355158 /* Objc_bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Objc_bridge.h; sourceTree = "<group>"; };
 		7BD06C5B2450715A00355158 /* WTNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTNavViewController.swift; sourceTree = "<group>"; };
 		7BD06C5F245072DB00355158 /* WTDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTDemoViewController.swift; sourceTree = "<group>"; };
+		7BD06C612450787F00355158 /* WTNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTNavBar.swift; sourceTree = "<group>"; };
+		7BD06C6324508B7400355158 /* WTCommon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTCommon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +119,7 @@
 				7BD06C062450414800355158 /* AppDelegate.swift */,
 				7BD06C5A2450660300355158 /* Objc_bridge.h */,
 				7BD06C082450414800355158 /* SceneDelegate.swift */,
+				7BD06C6324508B7400355158 /* WTCommon.swift */,
 				7BD06C0F2450414900355158 /* Assets.xcassets */,
 				7BD06C112450414900355158 /* LaunchScreen.storyboard */,
 				7BD06C142450414900355158 /* Info.plist */,
@@ -172,6 +177,7 @@
 				7BD06C5F245072DB00355158 /* WTDemoViewController.swift */,
 				7BD06C5B2450715A00355158 /* WTNavViewController.swift */,
 				7BD06C252450435300355158 /* WTBasicViewController.swift */,
+				7BD06C612450787F00355158 /* WTNavBar.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -317,11 +323,13 @@
 				7BD06C4E245065D700355158 /* UIColor+CZAddition.m in Sources */,
 				7BD06C60245072DB00355158 /* WTDemoViewController.swift in Sources */,
 				7BD06C282450437F00355158 /* WTMainViewController.swift in Sources */,
+				7BD06C622450787F00355158 /* WTNavBar.swift in Sources */,
 				7BD06C52245065D700355158 /* NSString+CZBase64.m in Sources */,
 				7BD06C3324504D1C00355158 /* String+Extension.swift in Sources */,
 				7BD06C51245065D700355158 /* UILabel+CZAddition.m in Sources */,
 				7BD06C55245065D700355158 /* NSObject+CZRuntime.m in Sources */,
 				7BD06C072450414800355158 /* AppDelegate.swift in Sources */,
+				7BD06C6424508B7400355158 /* WTCommon.swift in Sources */,
 				7BD06C56245065D700355158 /* UIViewController+CZAddition.m in Sources */,
 				7BD06C092450414800355158 /* SceneDelegate.swift in Sources */,
 				7BD06C30245043C900355158 /* WTProfileViewController.swift in Sources */,
