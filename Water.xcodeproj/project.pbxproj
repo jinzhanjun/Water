@@ -34,6 +34,7 @@
 		7BD06C60245072DB00355158 /* WTDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD06C5F245072DB00355158 /* WTDemoViewController.swift */; };
 		7BD06C622450787F00355158 /* WTNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD06C612450787F00355158 /* WTNavBar.swift */; };
 		7BD06C6424508B7400355158 /* WTCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD06C6324508B7400355158 /* WTCommon.swift */; };
+		7BD06C662450969F00355158 /* WTNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD06C652450969F00355158 /* WTNavButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,7 @@
 		7BD06C5F245072DB00355158 /* WTDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTDemoViewController.swift; sourceTree = "<group>"; };
 		7BD06C612450787F00355158 /* WTNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTNavBar.swift; sourceTree = "<group>"; };
 		7BD06C6324508B7400355158 /* WTCommon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTCommon.swift; sourceTree = "<group>"; };
+		7BD06C652450969F00355158 /* WTNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTNavButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +180,7 @@
 				7BD06C5B2450715A00355158 /* WTNavViewController.swift */,
 				7BD06C252450435300355158 /* WTBasicViewController.swift */,
 				7BD06C612450787F00355158 /* WTNavBar.swift */,
+				7BD06C652450969F00355158 /* WTNavButton.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				7BD06C57245065D700355158 /* NSString+CZHash.m in Sources */,
 				7BD06C50245065D700355158 /* UIScreen+CZAddition.m in Sources */,
 				7BD06C54245065D700355158 /* UIButton+CZAddition.m in Sources */,
+				7BD06C662450969F00355158 /* WTNavButton.swift in Sources */,
 				7BD06C262450435300355158 /* WTBasicViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

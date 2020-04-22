@@ -38,6 +38,8 @@ class WTBasicViewController: UIViewController {
     func setupNavBar() {
         navBar.items = [navItem]
         
+        // 设置导航条title的文字属性
+        navBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.darkGray]
         view.addSubview(navBar)
     }
 }

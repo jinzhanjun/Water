@@ -20,9 +20,13 @@ class WTHomeViewController: WTBasicViewController {
     override func setupNavBar() {
         super.setupNavBar()
         
-        navItem.leftBarButtonItem = UIBarButtonItem(title: "添加好友", style: .plain, target: self, action: #selector(showFriends))
+        // 首页导航汗牛
+        let button: UIButton = UIButton.cz_textButton("添加好友", fontSize: 16, normalColor: UIColor.systemBlue, highlightedColor: UIColor.orange)
+        button.addTarget(self, action: #selector(showFriends), for: .touchUpInside)
+        navItem.leftBarButtonItem = UIBarButtonItem(customView: button)
     }
     
+    /// 监听方法
     @objc private func showFriends() {
         navigationController?.pushViewController(WTDemoViewController(), animated: true)
     }
