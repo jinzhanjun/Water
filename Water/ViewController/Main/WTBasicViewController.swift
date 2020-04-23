@@ -16,6 +16,9 @@ class WTBasicViewController: UIViewController, UITableViewDelegate, UITableViewD
             navItem.title = title
         }
     }
+    
+    /// 用户是否登录
+    var isLogon = false
 
     /// 是否为上拉刷新
     var isPullUp = true
@@ -28,6 +31,9 @@ class WTBasicViewController: UIViewController, UITableViewDelegate, UITableViewD
     // 定义表格视图
     var tableView: UITableView?
     
+    // 定义访客视图
+    var visitorView: WTVisitorView?
+    
     // 下拉刷新控件
     var refresh: UIRefreshControl?
 
@@ -37,7 +43,7 @@ class WTBasicViewController: UIViewController, UITableViewDelegate, UITableViewD
         // 设置界面
         setupUI()
         // 加载数据
-        loadData()
+        isLogon ? loadData() : ()
     }
     
     /// 设置界面
@@ -45,8 +51,8 @@ class WTBasicViewController: UIViewController, UITableViewDelegate, UITableViewD
         // 设置导航条
         setupNavBar()
         
-        // 设置表格
-        setupTableView()
+        // 是否登录？ 登录就显示表格视图，未登录就显示访客视图
+        isLogon ? setupTableView() : setupVisitorView()
     }
     
     /// 具体由子类实现
@@ -76,6 +82,17 @@ class WTBasicViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView?.addSubview(refresh!)
         // 加入视图
         view.insertSubview(tableView!, belowSubview: navBar)
+    }
+    
+    /// 设置访客视图
+    private func setupVisitorView() {
+        
+        visitorView = WTVisitorView(frame: view.bounds)
+        
+        // 设置背景颜色
+        visitorView?.backgroundColor = UIColor.cz_color(withHex: 0xEDEDED)
+        
+        view.insertSubview(visitorView!, belowSubview: navBar)
     }
     
     /// 设置导航条

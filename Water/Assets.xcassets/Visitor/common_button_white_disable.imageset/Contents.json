@@ -10,7 +10,7 @@
       "resizing" : {
         "cap-insets" : {
           "left" : 10,
-          "right" : 11
+          "right" : 10
         },
         "center" : {
           "mode" : "tile",

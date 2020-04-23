@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7B87DA022451454B002D8F99 /* BarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B87DA012451454B002D8F99 /* BarButtonItem+Extension.swift */; };
 		7B87DA0424515092002D8F99 /* WTStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B87DA0324515092002D8F99 /* WTStatusViewModel.swift */; };
+		7B87DA06245191CD002D8F99 /* WTVisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B87DA05245191CD002D8F99 /* WTVisitorView.swift */; };
 		7BD06C072450414800355158 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD06C062450414800355158 /* AppDelegate.swift */; };
 		7BD06C092450414800355158 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD06C082450414800355158 /* SceneDelegate.swift */; };
 		7BD06C102450414900355158 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BD06C0F2450414900355158 /* Assets.xcassets */; };
@@ -36,12 +37,12 @@
 		7BD06C60245072DB00355158 /* WTDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD06C5F245072DB00355158 /* WTDemoViewController.swift */; };
 		7BD06C622450787F00355158 /* WTNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD06C612450787F00355158 /* WTNavBar.swift */; };
 		7BD06C6424508B7400355158 /* WTCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD06C6324508B7400355158 /* WTCommon.swift */; };
-		7BD06C682451301400355158 /* WTNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD06C672451301400355158 /* WTNavButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7B87DA012451454B002D8F99 /* BarButtonItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BarButtonItem+Extension.swift"; sourceTree = "<group>"; };
 		7B87DA0324515092002D8F99 /* WTStatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTStatusViewModel.swift; sourceTree = "<group>"; };
+		7B87DA05245191CD002D8F99 /* WTVisitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTVisitorView.swift; sourceTree = "<group>"; };
 		7BD06C032450414800355158 /* Water.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Water.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BD06C062450414800355158 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7BD06C082450414800355158 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,7 +86,6 @@
 		7BD06C5F245072DB00355158 /* WTDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTDemoViewController.swift; sourceTree = "<group>"; };
 		7BD06C612450787F00355158 /* WTNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTNavBar.swift; sourceTree = "<group>"; };
 		7BD06C6324508B7400355158 /* WTCommon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTCommon.swift; sourceTree = "<group>"; };
-		7BD06C672451301400355158 /* WTNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTNavButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,7 +185,7 @@
 				7BD06C5B2450715A00355158 /* WTNavViewController.swift */,
 				7BD06C252450435300355158 /* WTBasicViewController.swift */,
 				7BD06C612450787F00355158 /* WTNavBar.swift */,
-				7BD06C672451301400355158 /* WTNavButton.swift */,
+				7B87DA05245191CD002D8F99 /* WTVisitorView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -330,6 +330,7 @@
 				7BD06C5C2450715A00355158 /* WTNavViewController.swift in Sources */,
 				7BD06C53245065D700355158 /* NSString+CZPath.m in Sources */,
 				7BD06C4E245065D700355158 /* UIColor+CZAddition.m in Sources */,
+				7B87DA06245191CD002D8F99 /* WTVisitorView.swift in Sources */,
 				7BD06C60245072DB00355158 /* WTDemoViewController.swift in Sources */,
 				7BD06C282450437F00355158 /* WTMainViewController.swift in Sources */,
 				7BD06C622450787F00355158 /* WTNavBar.swift in Sources */,
@@ -352,7 +353,6 @@
 				7BD06C57245065D700355158 /* NSString+CZHash.m in Sources */,
 				7BD06C50245065D700355158 /* UIScreen+CZAddition.m in Sources */,
 				7BD06C54245065D700355158 /* UIButton+CZAddition.m in Sources */,
-				7BD06C682451301400355158 /* WTNavButton.swift in Sources */,
 				7BD06C262450435300355158 /* WTBasicViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
