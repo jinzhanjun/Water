@@ -20,8 +20,8 @@ class WTHomeViewController: WTBasicViewController {
     override func setupNavBar() {
         super.setupNavBar()
         
-        // 首页导航汗牛
-        let button: UIButton = UIButton.cz_textButton("添加好友", fontSize: 16, normalColor: UIColor.systemBlue, highlightedColor: UIColor.orange)
+        // 首页导航按钮
+        let button: UIButton = UIButton.cz_textButton("添加好友", fontSize: 14, normalColor: UIColor.systemBlue, highlightedColor: UIColor.orange)
         button.addTarget(self, action: #selector(showFriends), for: .touchUpInside)
         navItem.leftBarButtonItem = UIBarButtonItem(customView: button)
     }

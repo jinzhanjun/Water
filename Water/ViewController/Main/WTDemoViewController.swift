@@ -19,13 +19,15 @@ class WTDemoViewController: WTBasicViewController {
     
     override func setupNavBar() {
         super.setupNavBar()
-        let button: UIButton = UIButton.cz_textButton("下一页", fontSize: 16, normalColor: UIColor.darkGray, highlightedColor: UIColor.orange)
         
+        // 下一页按钮
+        let button: UIButton = UIButton.cz_textButton("下一页", fontSize: 14, normalColor: UIColor.darkGray, highlightedColor: UIColor.orange)
         button.addTarget(self, action: #selector(showNext), for: .touchUpInside)
         
+        // 添加按钮
         navItem.rightBarButtonItem = UIBarButtonItem(customView: button)
     }
-    
+    /// 下一页
     @objc private func showNext() {
         navigationController?.pushViewController(WTDemoViewController(), animated: true)
     }
