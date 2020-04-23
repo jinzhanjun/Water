@@ -47,18 +47,38 @@ class WTVisitorView: UIView {
         
         // 设置界面
         setupUI()
+        
+        addAnimation()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    /// 设置旋转动画
+    private func addAnimation() {
+        
+        /// 设置动画
+        let animation = CABasicAnimation(keyPath: "transform.rotation")
+        animation.toValue = 2 * Double.pi
+        animation.duration = 15
+        animation.repeatCount = MAXFLOAT
+        
+        // 给 layer 添加动画
+        smalliconImageView.layer.add(animation, forKey: nil)
+        
+        
+    }
+    
     /// 设置界面
     private func setupUI() {
         
+        // 设置tipLabel
         tipText = "关注一些人，关注一些事！！！"
         tipLabel.attributedText = NSAttributedString(string: tipText!, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)])
         tipLabel.textColor = UIColor.darkGray
+
+        
         // 添加控件
         addSubview(smalliconImageView)
         addSubview(maskIconImageView)
