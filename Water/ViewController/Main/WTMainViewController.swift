@@ -57,25 +57,28 @@ class WTMainViewController: UITabBarController {
     }
     
     /// 类字典信息
-    var classInfoDic: [[String: String]] {
-        return [["clsName": "WTHomeViewController", "title": "首页", "imageName": "home"],
-                ["clsName": "WTMessageViewController", "title": "消息", "imageName": "message_center"],
+    var classInfoDic: [[String: Any]] {
+        return [["clsName": "WTHomeViewController", "title": "首页", "imageName": "home", "visitorViewInfo": ["tips": "关注一些人，看到一些事，在这里分享！关注一些人，看到一些事，在这里分享！", "houseImageName": ""]],
+                ["clsName": "WTMessageViewController", "title": "消息", "imageName": "message_center", "visitorViewInfo": ["tips": "关注一些人，看到一些事，在这里分享！", "houseImageName": "message"]],
                 ["clsName": "composeViewController"],
-                ["clsName": "WTDiscoverViewController", "title": "发现", "imageName": "discover"],
-                ["clsName": "WTProfileViewController", "title": "我", "imageName": "profile"],
+                ["clsName": "WTDiscoverViewController", "title": "发现", "imageName": "discover", "visitorViewInfo": ["tips": "沟通消息，在这里开始", "houseImageName": "message"]],
+                ["clsName": "WTProfileViewController", "title": "我", "imageName": "profile", "visitorViewInfo": ["tips": "发现我自己！", "houseImageName": "profile"]],
         ]
     }
     /// 根据字典创建类
-    private func creatClass(by dict: [String: String]) -> UIViewController {
-        guard let clsName = dict["clsName"],
-            let title = dict["title"],
-            let imageName = dict["imageName"],
-            let cls = NSClassFromString(clsName.addNameSpace) as? UIViewController.Type
+    private func creatClass(by dict: [String: Any]) -> UIViewController {
+        guard let clsName = dict["clsName"] as? String,
+            let title = dict["title"] as? String,
+            let imageName = dict["imageName"] as? String,
+            let visitorViewInfo = dict["visitorViewInfo"] as? [String: String],
+            let cls = NSClassFromString(clsName.addNameSpace) as? WTBasicViewController.Type
             else { return UIViewController() }
         
         let vc = cls.init()
         // 设置标题
         vc.title = title
+        // 设置访客视图字典
+        vc.visitorViewInfo = visitorViewInfo
         // 设置标题图片
         vc.tabBarItem.image = UIImage(named: "tabbar_\(imageName)") // 正常状态
         vc.tabBarItem.selectedImage = UIImage(named: "tabbar_\(imageName)_selected")?.withRenderingMode(.alwaysOriginal) // 选择状态

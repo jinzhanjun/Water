@@ -10,9 +10,26 @@ import UIKit
 
 class WTVisitorView: UIView {
     
-    var tipText: String? {
+    var infoDict: [String: String]? {
         didSet {
-            tipLabel.text = tipText
+            // 获取信息字典
+            guard let tips = infoDict?["tips"],
+                let imageName = infoDict?["houseImageName"]
+            else { return }
+            
+            // 设置tips
+            tipLabel.text = tips
+            
+            // 判断是否是首页
+            if imageName == "" {
+                return
+            }
+            
+            // 重新设置图标
+            houseImageView.image = UIImage(named: "visitordiscover_image_\(imageName)")
+            // 移除遮罩图像和旋转图像
+            maskIconImageView.isHidden = true
+            smalliconImageView.isHidden = true
         }
     }
     
@@ -64,20 +81,22 @@ class WTVisitorView: UIView {
         animation.duration = 15
         animation.repeatCount = MAXFLOAT
         
+        //动画完成不删除，如果 iconView 被释放，动画会一起销毁！
+        // 解决切换画面后，换面停止的问题
+        animation.isRemovedOnCompletion = false
         // 给 layer 添加动画
         smalliconImageView.layer.add(animation, forKey: nil)
-        
-        
     }
     
     /// 设置界面
     private func setupUI() {
         
-        // 设置tipLabel
-        tipText = "关注一些人，关注一些事！！！"
-        tipLabel.attributedText = NSAttributedString(string: tipText!, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)])
+        // 设置label的字体属性
+        tipLabel.attributedText = NSAttributedString(string: "关注一些人，和一些事，在这里看看发生了什么", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)])
         tipLabel.textColor = UIColor.darkGray
-
+        
+        tipLabel.numberOfLines = 0
+        tipLabel.textAlignment = .center
         
         // 添加控件
         addSubview(smalliconImageView)
@@ -90,9 +109,9 @@ class WTVisitorView: UIView {
         // 取消自动布局，（系统自动添加的约束）
         subviews.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
         
-        // 小房子约束
+        // 旋转视图约束
         addConstraint(NSLayoutConstraint(
-            item: houseImageView,
+            item: smalliconImageView,
             attribute: .centerX,
             relatedBy: .equal,
             toItem: self,
@@ -101,7 +120,7 @@ class WTVisitorView: UIView {
             constant: 0)
         )
         addConstraint(NSLayoutConstraint(
-            item: houseImageView,
+            item: smalliconImageView,
             attribute: .centerY,
             relatedBy: .equal,
             toItem: self,
@@ -110,44 +129,53 @@ class WTVisitorView: UIView {
             constant: -100)
         )
         
-        // 旋转视图约束
+        // 小房子约束
         addConstraint(NSLayoutConstraint(
-            item: smalliconImageView,
+            item: houseImageView,
             attribute: .centerX,
             relatedBy: .equal,
-            toItem: houseImageView,
+            toItem: smalliconImageView,
             attribute: .centerX,
             multiplier: 1,
             constant: 0)
         )
         addConstraint(NSLayoutConstraint(
-            item: smalliconImageView,
+            item: houseImageView,
             attribute: .centerY,
             relatedBy: .equal,
-            toItem: houseImageView,
+            toItem: smalliconImageView,
             attribute: .centerY,
             multiplier: 1,
             constant: 0)
         )
         
-        // 旋转视图约束
+        // label约束
+        addConstraint(NSLayoutConstraint(
+            item: tipLabel,
+            attribute: .top,
+            relatedBy: .equal,
+            toItem: smalliconImageView,
+            attribute: .bottom,
+            multiplier: 1,
+            constant: 0)
+        )
         addConstraint(NSLayoutConstraint(
             item: tipLabel,
             attribute: .centerX,
             relatedBy: .equal,
-            toItem: houseImageView,
+            toItem: smalliconImageView,
             attribute: .centerX,
             multiplier: 1,
             constant: 0)
         )
         addConstraint(NSLayoutConstraint(
             item: tipLabel,
-            attribute: .top,
+            attribute: .width,
             relatedBy: .equal,
-            toItem: houseImageView,
-            attribute: .bottom,
+            toItem: nil,
+            attribute: .notAnAttribute,
             multiplier: 1,
-            constant: 50)
+            constant: 300)
         )
         
         // 登录按钮约束
@@ -155,16 +183,16 @@ class WTVisitorView: UIView {
             item: loginButton,
             attribute: .top,
             relatedBy: .equal,
-            toItem: houseImageView,
+            toItem: tipLabel,
             attribute: .bottom,
             multiplier: 1,
-            constant: 80)
+            constant: 10)
         )
         addConstraint(NSLayoutConstraint(
             item: loginButton,
             attribute: .centerX,
             relatedBy: .equal,
-            toItem: houseImageView,
+            toItem: tipLabel,
             attribute: .centerX,
             multiplier: 1,
             constant: 60))
@@ -182,16 +210,16 @@ class WTVisitorView: UIView {
             item: registButton,
             attribute: .top,
             relatedBy: .equal,
-            toItem: houseImageView,
-            attribute: .bottom,
+            toItem: loginButton,
+            attribute: .top,
             multiplier: 1,
-            constant: 80)
+            constant: 0)
         )
         addConstraint(NSLayoutConstraint(
             item: registButton,
             attribute: .centerX,
             relatedBy: .equal,
-            toItem: houseImageView,
+            toItem: tipLabel,
             attribute: .centerX,
             multiplier: 1,
             constant: -60))

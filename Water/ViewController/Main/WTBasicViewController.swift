@@ -19,6 +19,9 @@ class WTBasicViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     /// 用户是否登录
     var isLogon = false
+    
+    /// 访客视图字典
+    var visitorViewInfo: [String: String]?
 
     /// 是否为上拉刷新
     var isPullUp = true
@@ -89,6 +92,7 @@ class WTBasicViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         visitorView = WTVisitorView(frame: view.bounds)
         
+        visitorView?.infoDict = visitorViewInfo
         // 设置背景颜色
         visitorView?.backgroundColor = UIColor.cz_color(withHex: 0xEDEDED)
         
