@@ -8,16 +8,13 @@
 
 import UIKit
 
-class WTNavViewController: UINavigationController, UINavigationControllerDelegate {
+class WTNavViewController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // 设置界面
         setupUI()
-        
-        // 设置代理
-        delegate = self
     }
     
     /// 设置界面
@@ -42,16 +39,12 @@ class WTNavViewController: UINavigationController, UINavigationControllerDelegat
         if let vc = viewController as? WTDemoViewController {
             
             vc.navItem.leftBarButtonItem = UIBarButtonItem(title: title, imageName: "navigationbar_back_withtext", highlightImageName: "navigationbar_back_withtext_highlighted", target: self, action: #selector(back), event: .touchUpInside)
+            
+            vc.title = "第 \(childCount) 页"
         }
         
         super.pushViewController(viewController, animated: animated)
     }
-    
-    //MARK: - navigationDelegate
-    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-        
-    }
-    
     @objc private func back() {
         popViewController(animated: true)
     }
