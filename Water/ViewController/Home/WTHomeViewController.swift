@@ -21,13 +21,13 @@ class WTHomeViewController: WTBasicViewController {
         model.loadData(isPullUp: isPullUp) { (isSuccess) in
             if isSuccess {
                 refresh?.endRefreshing()
+                // 表格视图重新加载
+                tableView?.reloadData()
             }
         }
         
         // 数据加载完成后，恢复上拉标记为false
         isPullUp = false
-        // 完成父类加载数据的方法
-        super.loadData()
     }
     
     /// 重写设置导航条

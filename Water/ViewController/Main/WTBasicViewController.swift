@@ -52,10 +52,8 @@ class WTBasicViewController: UIViewController, UITableViewDelegate, UITableViewD
     /// 具体由子类实现
     func loadData() {
         
-        // 结束刷新
+        // 如果子类不实现任何数据方法，就结束刷新
         refresh?.endRefreshing()
-        // 表格视图重新加载
-        tableView?.reloadData()
     }
     
     /// 设置表格
