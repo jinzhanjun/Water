@@ -58,15 +58,44 @@ class WTMainViewController: UITabBarController {
     
     /// 类字典信息
     var classInfoDic: [[String: Any]] {
-        return [["clsName": "WTHomeViewController", "title": "首页", "imageName": "home", "visitorViewInfo": ["tips": "关注一些人，看到一些事，在这里分享！关注一些人，看到一些事，在这里分享！", "houseImageName": ""]],
-                ["clsName": "WTMessageViewController", "title": "消息", "imageName": "message_center", "visitorViewInfo": ["tips": "关注一些人，看到一些事，在这里分享！", "houseImageName": "message"]],
-                ["clsName": "composeViewController"],
-                ["clsName": "WTDiscoverViewController", "title": "发现", "imageName": "discover", "visitorViewInfo": ["tips": "沟通消息，在这里开始", "houseImageName": "message"]],
-                ["clsName": "WTProfileViewController", "title": "我", "imageName": "profile", "visitorViewInfo": ["tips": "发现我自己！", "houseImageName": "profile"]],
-        ]
+        
+        // 1、判断沙盒中是否有文件
+        // 1> 获取沙盒路径
+        var sandBoxUrl = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+        sandBoxUrl?.appendPathComponent("classInfoDic.json")
+        
+        // 2> 从沙盒中加载数据
+        if let jsonData = try? Data(contentsOf: sandBoxUrl!),
+            let json =  try? JSONSerialization.jsonObject(with: jsonData, options: []) as? [[String: Any]]
+        {
+            return json
+        } else {
+            
+            let infoDictData = Bundle.main.path(forResource: "classInfoDic.plist", ofType: nil)
+            let array = NSArray(contentsOfFile: infoDictData!) as! [[String: Any]]
+            return array
+        }
     }
+
+    
     /// 根据字典创建类
     private func creatClass(by dict: [String: Any]) -> UIViewController {
+        
+        
+        /// 字典序列化
+        // 获取沙盒路径
+        var sandBox = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+        
+        sandBox?.appendPathComponent("classInfoDic.json")
+        
+        // 序列化
+        let data = try? JSONSerialization.data(withJSONObject: classInfoDic, options: .prettyPrinted)
+        
+        try? data?.write(to: sandBox!)
+        
+        
+        
+        
         guard let clsName = dict["clsName"] as? String,
             let title = dict["title"] as? String,
             let imageName = dict["imageName"] as? String,

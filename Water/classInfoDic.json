@@ -1,0 +1,41 @@
+[
+  {
+    "clsName" : "WTHomeViewController",
+    "visitorViewInfo" : {
+      "houseImageName" : "",
+      "tips" : "关注一些人，看到一些事，在这里分享！关注一些人，看到一些事，在这里分享！又哈哈哈哈了"
+    },
+    "imageName" : "home",
+    "title" : "首页"
+  },
+  {
+    "imageName" : "message_center",
+    "title" : "消息",
+    "visitorViewInfo" : {
+      "houseImageName" : "message",
+      "tips" : "关注一些人，看到一些事，在这里分享！"
+    },
+    "clsName" : "WTMessageViewController"
+  },
+  {
+    "clsName" : "composeViewController"
+  },
+  {
+    "title" : "发现",
+    "imageName" : "discover",
+    "visitorViewInfo" : {
+      "tips" : "沟通消息，在这里开始",
+      "houseImageName" : "message"
+    },
+    "clsName" : "WTDiscoverViewController"
+  },
+  {
+    "title" : "我",
+    "visitorViewInfo" : {
+      "houseImageName" : "profile",
+      "tips" : "发现我自己！"
+    },
+    "clsName" : "WTProfileViewController",
+    "imageName" : "profile"
+  }
+]

@@ -10,6 +10,8 @@
 		7B87DA022451454B002D8F99 /* BarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B87DA012451454B002D8F99 /* BarButtonItem+Extension.swift */; };
 		7B87DA0424515092002D8F99 /* WTStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B87DA0324515092002D8F99 /* WTStatusViewModel.swift */; };
 		7B87DA06245191CD002D8F99 /* WTVisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B87DA05245191CD002D8F99 /* WTVisitorView.swift */; };
+		7B87DA082451D724002D8F99 /* classInfoDic.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7B87DA072451D724002D8F99 /* classInfoDic.plist */; };
+		7B87DA0A2451DE57002D8F99 /* classInfoDic.json in Resources */ = {isa = PBXBuildFile; fileRef = 7B87DA092451DE56002D8F99 /* classInfoDic.json */; };
 		7BD06C072450414800355158 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD06C062450414800355158 /* AppDelegate.swift */; };
 		7BD06C092450414800355158 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD06C082450414800355158 /* SceneDelegate.swift */; };
 		7BD06C102450414900355158 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BD06C0F2450414900355158 /* Assets.xcassets */; };
@@ -43,6 +45,8 @@
 		7B87DA012451454B002D8F99 /* BarButtonItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BarButtonItem+Extension.swift"; sourceTree = "<group>"; };
 		7B87DA0324515092002D8F99 /* WTStatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTStatusViewModel.swift; sourceTree = "<group>"; };
 		7B87DA05245191CD002D8F99 /* WTVisitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTVisitorView.swift; sourceTree = "<group>"; };
+		7B87DA072451D724002D8F99 /* classInfoDic.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = classInfoDic.plist; sourceTree = "<group>"; };
+		7B87DA092451DE56002D8F99 /* classInfoDic.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = classInfoDic.json; sourceTree = "<group>"; };
 		7BD06C032450414800355158 /* Water.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Water.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BD06C062450414800355158 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7BD06C082450414800355158 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +130,8 @@
 				7BD06C5A2450660300355158 /* Objc_bridge.h */,
 				7BD06C082450414800355158 /* SceneDelegate.swift */,
 				7BD06C6324508B7400355158 /* WTCommon.swift */,
+				7B87DA092451DE56002D8F99 /* classInfoDic.json */,
+				7B87DA072451D724002D8F99 /* classInfoDic.plist */,
 				7BD06C0F2450414900355158 /* Assets.xcassets */,
 				7BD06C112450414900355158 /* LaunchScreen.storyboard */,
 				7BD06C142450414900355158 /* Info.plist */,
@@ -314,8 +320,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B87DA082451D724002D8F99 /* classInfoDic.plist in Resources */,
 				7BD06C132450414900355158 /* LaunchScreen.storyboard in Resources */,
 				7BD06C102450414900355158 /* Assets.xcassets in Resources */,
+				7B87DA0A2451DE57002D8F99 /* classInfoDic.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

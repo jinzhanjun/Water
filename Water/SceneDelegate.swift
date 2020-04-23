@@ -23,6 +23,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window?.rootViewController = WTMainViewController()
         
+        // 从网络获取json，加载App信息
+        getAppInfo()
         window?.makeKeyAndVisible()
         
     }
@@ -54,7 +56,33 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
+}
 
-
+/// 封装网络请求，获取配置字典，作为下次启动的界面设置内容
+extension SceneDelegate {
+    
+    private func getAppInfo() {
+        
+        // 获取文件地址
+        var filePathString : String? {
+            return Bundle.main.path(forResource: "classInfoDic.json", ofType: nil)
+        }
+        
+        guard let filePath = filePathString else { return }
+        
+        // 异步
+        DispatchQueue.global(qos: .userInitiated).async {
+            // 模拟异步加载数据
+            guard let data = NSData(contentsOfFile: filePath),
+                
+                // 获取沙盒地址
+                var sandBox = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+                else { return }
+            
+            sandBox.appendPathComponent("classInfoDic.json")
+            // 写入沙盒
+            try? data.write(to: sandBox, options: [])
+        }
+    }
 }
 
