@@ -24,10 +24,10 @@ class WTHomeViewController: WTBasicViewController {
                 // 表格视图重新加载
                 tableView?.reloadData()
             }
+            
+            // 恢复上拉标记
+            isPullUp = true
         }
-        
-        // 数据加载完成后，恢复上拉标记为false
-        isPullUp = false
     }
     
     /// 重写设置导航条
@@ -77,6 +77,9 @@ class WTHomeViewController: WTBasicViewController {
         let row = indexPath.row
         
         if section == 0 && row == model.array.count - 1 {
+            // 标记为下拉
+            isPullUp = false
+            // 加载数据
             loadData()
         }
     }

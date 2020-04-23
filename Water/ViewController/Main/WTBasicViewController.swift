@@ -18,7 +18,7 @@ class WTBasicViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
 
     /// 是否为上拉刷新
-    var isPullUp = false
+    var isPullUp = true
     
     /// 懒加载自定义导航条
     lazy var navBar = WTNavBar(frame: CGRect(x: 0, y: StatusBarHeight, width: UIScreen.cz_screenWidth(), height: 44))
@@ -50,7 +50,7 @@ class WTBasicViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     /// 具体由子类实现
-    func loadData() {
+    @objc func loadData() {
         
         // 如果子类不实现任何数据方法，就结束刷新
         refresh?.endRefreshing()
@@ -72,16 +72,10 @@ class WTBasicViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         // 下拉刷新
         refresh = UIRefreshControl()
-        refresh?.addTarget(self, action: #selector(reFreshData), for: .valueChanged)
+        refresh?.addTarget(self, action: #selector(loadData), for: .valueChanged)
         tableView?.addSubview(refresh!)
         // 加入视图
         view.insertSubview(tableView!, belowSubview: navBar)
-    }
-    
-    // 刷新数据
-    @objc private func reFreshData() {
-        isPullUp = true
-        loadData()
     }
     
     /// 设置导航条
